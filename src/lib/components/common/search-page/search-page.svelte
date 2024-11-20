@@ -39,6 +39,5 @@
 
 <TitledPage {title}>
 	<Input placeholder="Search..." bind:value={query} />
-	<div class="pt-2"></div>
 	{@render children()}
 </TitledPage>

@@ -93,7 +93,7 @@
 	{...reset}
 	onmousemove={onHover}
 >
-	<div class="card-color flex flex-col">
+	<div class="card-color flex flex-1 flex-col">
 		{@render children?.()}
 	</div>
 </svelte:element>

@@ -18,7 +18,7 @@
 </script>
 
 <SearchPage title={SkillsData.title} {onSearch}>
-	<div class="flex flex-col gap-14">
+	<div class="mt-4 flex flex-col gap-14">
 		{#each groups as group}
 			<div class="flex flex-col gap-6">
 				<div class="flex flex-row items-center gap-2">
