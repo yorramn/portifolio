@@ -19,7 +19,7 @@
 
 <SearchPage title={SkillsData.title} {onSearch}>
 	<div class="mt-4 flex flex-col gap-14">
-		{#each groups as group}
+		{#each groups as group (group.category.slug)}
 			<div class="flex flex-col gap-6">
 				<div class="flex flex-row items-center gap-2">
 					<Separator class="w-[50px]" />
@@ -27,7 +27,7 @@
 					<Separator class="flex-1" />
 				</div>
 				<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-					{#each group.items as item}
+					{#each group.items as item (item.slug)}
 						<FancyCard
 							bgImg={$mode === 'light' ? item.logo.light : item.logo.dark}
 							color={item.color}

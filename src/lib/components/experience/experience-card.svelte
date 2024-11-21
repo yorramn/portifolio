@@ -11,6 +11,7 @@
 	import Icon from '../ui/icon/icon.svelte';
 	import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 	import Muted from '../ui/typography/muted.svelte';
+	import { ellipsify } from '@riadh-adrani/utils';
 
 	const { it }: { it: Experience } = $props();
 
@@ -43,7 +44,7 @@
 		<div class="flex flex-col gap-4">
 			<CardTitle>{it.name}</CardTitle>
 			<div class="flex flex-row flex-wrap gap-1">
-				{#each badges as badge}
+				{#each badges as badge (badge.icon)}
 					<Tooltip>
 						<TooltipTrigger>
 							<Badge variant="secondary" class="flex flex-row items-center gap-1">
@@ -73,8 +74,9 @@
 					<TooltipContent side="bottom">Exact duration</TooltipContent>
 				</TooltipTrigger>
 			</Tooltip>
+			<div>{ellipsify(it.description, 150)}</div>
 			<div class="flex flex-row flex-wrap gap-2">
-				{#each it.skills as skill}
+				{#each it.skills as skill (skill.slug)}
 					<Tooltip openDelay={100}>
 						<TooltipTrigger class="group">
 							<a href={`/skills/${skill.slug}`}>

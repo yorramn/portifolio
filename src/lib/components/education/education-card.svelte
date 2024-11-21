@@ -2,6 +2,7 @@
 	import Assets from '$lib/data/assets';
 	import type { Education } from '$lib/data/types';
 	import { computeExactDuration, getMonthName } from '$lib/utils';
+	import { ellipsify } from '@riadh-adrani/utils';
 	import { Avatar, AvatarFallback } from '../ui/avatar';
 	import { Badge } from '../ui/badge';
 	import { CardContent, CardTitle } from '../ui/card';
@@ -63,8 +64,11 @@
 					<TooltipContent side="bottom">Exact duration</TooltipContent>
 				</TooltipTrigger>
 			</Tooltip>
+			<div>
+				{ellipsify(it.description, 150)}
+			</div>
 			<div class="flex flex-row flex-wrap gap-2">
-				{#each it.subjects as subject}
+				{#each it.subjects as subject (subject)}
 					<Badge variant="secondary">{subject}</Badge>
 				{/each}
 			</div>

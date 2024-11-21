@@ -73,7 +73,7 @@
 <SearchPage title={ProjectsData.title} {onSearch}>
 	<div class="flex flex-col gap-8">
 		<div class="flex flex-row flex-wrap gap-2">
-			{#each filters as it}
+			{#each filters as it (it.slug)}
 				<Toggle
 					pressed={it.isSelected}
 					variant="outline"
@@ -83,7 +83,7 @@
 			{/each}
 		</div>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-			{#each result as it}
+			{#each result as it (it.slug)}
 				<FancyCard color={it.color} class="flex h-full flex-col">
 					<CardHeader class="flex w-full flex-col gap-4">
 						<Avatar>
@@ -96,7 +96,7 @@
 							<CardTitle class="line-clamp-1 flex-1 truncate text-ellipsis text-nowrap"
 								>{it.name}</CardTitle
 							>
-							{#each it.links as link}
+							{#each it.links as link (link.to)}
 								<a href={link.to} target={link.newTab ? '_blank' : undefined}>
 									<Tooltip>
 										<TooltipTrigger>
@@ -128,7 +128,7 @@
 						<Separator />
 					</CardContent>
 					<CardFooter class="flex flex-row flex-wrap items-center gap-2">
-						{#each it.skills as skill}
+						{#each it.skills as skill (skill.slug)}
 							<Tooltip openDelay={100}>
 								<TooltipTrigger>
 									<a href={`/skills/${skill.slug}`}>

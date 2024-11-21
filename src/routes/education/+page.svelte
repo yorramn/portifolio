@@ -22,7 +22,7 @@
 
 <SearchPage title={EducationData.title} {onSearch}>
 	<div class="flex flex-col gap-6 lg:gap-0">
-		{#each result as it, index}
+		{#each result as it, index (it.slug)}
 			<div class={`flex ${index % 2 !== 0 ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
 				<div class="flex flex-1 flex-col justify-center lg:py-[50px]">
 					<EducationCard {it} />
