@@ -34,7 +34,7 @@
 	let exactDuration = $derived(computeExactDuration(project.period.from, project.period.to));
 </script>
 
-<FancyCard color={project.color} class="flex h-full flex-col">
+<FancyCard color={project.color} class="flex h-full flex-col" href={`/projects/${project.slug}`}>
 	<CardHeader class="flex w-full flex-col gap-4">
 		<Avatar>
 			<AvatarFallback>
