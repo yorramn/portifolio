@@ -14,6 +14,18 @@
 	import HomeData from '$lib/data/home';
 	import { href } from '$lib/utils';
 	import { mode } from 'mode-watcher';
+	import { type CarouselAPI } from '$lib/components/ui/carousel/context.js';
+	import { onMount } from 'svelte';
+
+	let api: CarouselAPI;
+
+	onMount(() => {
+		setInterval(() => {
+			if (!api) return;
+
+			api.scrollNext();
+		}, 2000);
+	});
 </script>
 
 <Title title={HomeData.title} />
@@ -43,7 +55,7 @@
 			</div>
 		</div>
 		<div>
-			<Carousel class="w-[200px] md:ml-14">
+			<Carousel bind:api class="w-[200px] md:ml-14" opts={{ loop: true }}>
 				<CarouselContent>
 					{#each HomeData.carousel as item}
 						<CarouselItem class="flex flex-col items-center justify-center gap-4">
