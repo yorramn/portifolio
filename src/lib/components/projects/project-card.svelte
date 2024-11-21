@@ -19,8 +19,19 @@
 	import SkillBadge from '../common/skill-badge/skill-badge.svelte';
 	import { mode } from 'mode-watcher';
 	import type { Project } from '$lib/data/types';
+	import { computeExactDuration, getMonthName } from '$lib/utils';
 
 	const { project }: { project: Project } = $props();
+
+	let from = $derived(
+		`${getMonthName(project.period.from.getMonth())} ${project.period.from.getFullYear()}`
+	);
+	let to = $derived(
+		project.period.to
+			? `${getMonthName(project.period.to.getMonth())} ${project.period.to.getFullYear()}`
+			: 'Present'
+	);
+	let exactDuration = $derived(computeExactDuration(project.period.from, project.period.to));
 </script>
 
 <FancyCard color={project.color} class="flex h-full flex-col">
@@ -57,12 +68,12 @@
 		</Muted>
 		<Muted className="flex flex-row gap-2 items-center">
 			<Icon icon="i-carbon-time" />
-			<Muted>Duration</Muted>
+			<Muted>{exactDuration}</Muted>
 		</Muted>
 		<Muted className="flex-1">{ellipsify(project.description, 100)}</Muted>
 		<div class="flex w-full flex-row items-center justify-between">
-			<Badge variant="outline">Start</Badge>
-			<Badge variant="outline">End</Badge>
+			<Badge variant="outline">{from}</Badge>
+			<Badge variant="outline">{to}</Badge>
 		</div>
 		<Separator />
 	</CardContent>

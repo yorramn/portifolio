@@ -2,6 +2,7 @@
 	import EmptyResult from '$lib/components/common/empty-result/empty-result.svelte';
 	import SearchPage from '$lib/components/common/search-page/search-page.svelte';
 	import ProjectCard from '$lib/components/projects/project-card.svelte';
+	import Icon from '$lib/components/ui/icon/icon.svelte';
 	import Toggle from '$lib/components/ui/toggle/toggle.svelte';
 	import ProjectsData from '$lib/data/projects';
 	import SkillsData from '$lib/data/skills';
@@ -65,8 +66,13 @@
 				<Toggle
 					pressed={it.isSelected}
 					variant="outline"
-					class="rounded-lg"
-					on:click={() => toggleSelected(it.slug)}>{it.name}</Toggle
+					class="flex flex-row items-center gap-2 rounded-lg"
+					on:click={() => toggleSelected(it.slug)}
+				>
+					{#if it.isSelected}
+						<Icon icon="i-carbon-close" />
+					{/if}
+					{it.name}</Toggle
 				>
 			{/each}
 		</div>
