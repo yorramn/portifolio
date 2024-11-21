@@ -19,14 +19,19 @@
 	import H1 from '$lib/components/ui/typography/h1.svelte';
 	import Muted from '$lib/components/ui/typography/muted.svelte';
 	import Assets from '$lib/data/assets';
-	import type { Project } from '$lib/data/types';
+	import type { Education } from '$lib/data/types';
+	import { computeExactDuration } from '$lib/utils';
 	import { mode } from 'mode-watcher';
 
-	let { data }: { data: { item?: Project } } = $props();
+	let { data }: { data: { item?: Education } } = $props();
 
 	let title = $derived(`${data?.item?.name ?? 'Not Found'} - Skills`);
 	let banner = $derived(
 		($mode == 'dark' ? data?.item?.logo.dark : data.item?.logo.light) ?? Assets.Unknown.light
+	);
+
+	let duration = $derived(
+		data.item ? computeExactDuration(data.item?.period.from, data.item?.period.to) : 'Unknown'
 	);
 </script>
 
@@ -36,26 +41,15 @@
 	{:else}
 		<FancyBanner img={banner}>
 			<div class="flex w-full flex-col items-center justify-center gap-4">
-				<H1>{data.item.name}</H1>
-				<Muted>{data.item.type}</Muted>
+				<H1>{data.item.degree}</H1>
+				<Muted>{data.item.organization} · {data.item.location}</Muted>
+				<Muted>{duration}</Muted>
 				<Separator />
 				<div class="flex flex-row flex-wrap gap-2">
-					{#each data.item.links as link (link.to)}
-						<a href={link.to} target="_blank"><Badge variant="outline">{link.label}</Badge></a>
-					{/each}
-				</div>
-				<div class="flex flex-row flex-wrap gap-2">
-					{#each data.item.skills as skill (skill.slug)}
-						<a href={`/skills/${skill.slug}`}>
-							<Badge variant="outline" class="flex flex-row items-center justify-center gap-2">
-								<img
-									class="h-[20px] w-[20px]"
-									src={$mode === 'dark' ? skill.logo.dark : skill.logo.light}
-									alt={skill.name}
-								/>
-								<Muted>{skill.name}</Muted>
-							</Badge>
-						</a>
+					{#each data.item.subjects as subject (subject)}
+						<Badge variant="outline" class="flex flex-row items-center justify-center gap-2">
+							<Muted>{subject}</Muted>
+						</Badge>
 					{/each}
 				</div>
 			</div>

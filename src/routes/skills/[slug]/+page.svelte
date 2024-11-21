@@ -2,6 +2,7 @@
 	import BasePage from '$lib/components/common/base-page/base-page.svelte';
 	import EmptyResult from '$lib/components/common/empty-result/empty-result.svelte';
 	import FancyBanner from '$lib/components/common/fancy-banner/fancy-banner.svelte';
+	import EmptyMarkdown from '$lib/components/common/markdown/empty-markdown.svelte';
 	import Markdown from '$lib/components/common/markdown/markdown.svelte';
 	import { Badge } from '$lib/components/ui/badge';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
@@ -61,15 +62,21 @@
 			<H1>{data.item.name}</H1>
 		</FancyBanner>
 		<Separator />
-		<Markdown content={data.item.description} />
+		{#if data.item.description.trim()}
+			<Markdown content={data.item.description} />
+		{:else}
+			<EmptyMarkdown />
+		{/if}
 		<Separator />
-		<div class="flex flex-row flex-wrap items-center gap-2 py-4">
-			<Muted>Related items</Muted>
-			{#each related as item}
-				<a href={item.link}>
-					<Badge>{item.name}</Badge>
-				</a>
-			{/each}
-		</div>
+		{#if related.length !== 0}
+			<div class="flex flex-row flex-wrap items-center gap-2 py-4">
+				<Muted>Related items</Muted>
+				{#each related as item}
+					<a href={item.link}>
+						<Badge>{item.name}</Badge>
+					</a>
+				{/each}
+			</div>
+		{/if}
 	{/if}
 </BasePage>

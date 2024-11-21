@@ -10,7 +10,7 @@
 
 <div
 	style={`--bg-img:url(${img})`}
-	class={`row skill-cover min-h-[200px] w-full px-4 py-8 text-center sm:min-h-[250px] md:min-h-[300px] md:px-10 lg:min-h-[350px] ${className}`}
+	class={`row gradient-cover min-h-[200px] w-full px-4 py-8 text-center sm:min-h-[250px] md:min-h-[300px] md:px-10 lg:min-h-[350px] ${className}`}
 >
 	<div class="p-x-2 flex size-full flex-1 flex-col items-center justify-center">
 		{@render children?.()}
@@ -18,7 +18,7 @@
 </div>
 
 <style>
-	.skill-cover {
+	.gradient-cover {
 		--card-color: hsl(var(--card) / 1);
 		--card-color-30: hsl(var(--card) / 0.3);
 

@@ -2,6 +2,7 @@
 	import BasePage from '$lib/components/common/base-page/base-page.svelte';
 	import EmptyResult from '$lib/components/common/empty-result/empty-result.svelte';
 	import FancyBanner from '$lib/components/common/fancy-banner/fancy-banner.svelte';
+	import EmptyMarkdown from '$lib/components/common/markdown/empty-markdown.svelte';
 	import Markdown from '$lib/components/common/markdown/markdown.svelte';
 	import Badge from '$lib/components/ui/badge/badge.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
@@ -66,7 +67,11 @@
 			</div>
 		</FancyBanner>
 		<Separator />
-		<Markdown content={data.item.description} />
+		{#if data.item.description.trim()}
+			<Markdown content={data.item.description} />
+		{:else}
+			<EmptyMarkdown />
+		{/if}
 		<Separator />
 		<div class="flex flex-col gap-2 px-4 pt-4">
 			{#if data.item.screenshots && data.item.screenshots.length > 0}

@@ -78,7 +78,7 @@ export const groupByCategory = (
 
 const title = 'Skills';
 
-export const items = [
+const items = [
 	defineSkill({
 		slug: 'js',
 		color: 'yellow',
