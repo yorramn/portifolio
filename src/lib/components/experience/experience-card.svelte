@@ -44,7 +44,7 @@
 			<CardTitle>{it.name}</CardTitle>
 			<div class="flex flex-row flex-wrap gap-1">
 				{#each badges as badge (badge.icon)}
-					<Tooltip>
+					<Tooltip openDelay={300}>
 						<TooltipTrigger>
 							<Badge variant="secondary" class="flex flex-row items-center gap-1">
 								<Icon icon={badge.icon} />
@@ -55,7 +55,7 @@
 					</Tooltip>
 				{/each}
 			</div>
-			<Tooltip>
+			<Tooltip openDelay={300}>
 				<TooltipTrigger>
 					<Muted className="flex flex-row items-center gap-2">
 						<Icon icon="i-carbon-calendar" />
@@ -64,7 +64,7 @@
 				</TooltipTrigger>
 				<TooltipContent>Date range</TooltipContent>
 			</Tooltip>
-			<Tooltip>
+			<Tooltip openDelay={300}>
 				<TooltipTrigger>
 					<Muted className="flex flex-row items-center gap-2">
 						<Icon icon="i-carbon-time" />

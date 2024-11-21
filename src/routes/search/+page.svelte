@@ -121,7 +121,7 @@
 							</Large>
 							<Large>{group.name}</Large>
 						</div>
-						<Separator />
+						<Separator class="flex-1" />
 					</div>
 					<div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 						{#each group.items as item (item.link)}
@@ -133,7 +133,7 @@
 										</AvatarFallback>
 										<AvatarImage src={item.logo} />
 									</Avatar>
-									<Tooltip>
+									<Tooltip openDelay={300}>
 										<TooltipTrigger>
 											<CardTitle class="line-clamp-2 truncate text-ellipsis text-left"
 												>{item.name}</CardTitle

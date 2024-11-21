@@ -52,7 +52,7 @@
 			>
 			{#each project.links as link (link.to)}
 				<a href={link.to} target={link.newTab ? '_blank' : undefined}>
-					<Tooltip>
+					<Tooltip openDelay={300}>
 						<TooltipTrigger>
 							<Button size="icon" variant="outline"><Icon icon="i-carbon-link" /></Button>
 						</TooltipTrigger>

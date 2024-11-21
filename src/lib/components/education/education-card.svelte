@@ -37,16 +37,16 @@
 		</Avatar>
 		<div class="flex flex-col gap-4">
 			<CardTitle>{it.degree}</CardTitle>
-			<Tooltip>
+			<Tooltip openDelay={300}>
 				<TooltipTrigger>
 					<Muted className="flex flex-row items-center gap-2">
 						<Icon icon="i-carbon-location" />
 						<div>{location}</div>
 					</Muted>
 				</TooltipTrigger>
-				<TooltipContent>Date range</TooltipContent>
+				<TooltipContent>Location</TooltipContent>
 			</Tooltip>
-			<Tooltip>
+			<Tooltip openDelay={300}>
 				<TooltipTrigger>
 					<Muted className="flex flex-row items-center gap-2">
 						<Icon icon="i-carbon-calendar" />
@@ -55,7 +55,7 @@
 				</TooltipTrigger>
 				<TooltipContent>Date range</TooltipContent>
 			</Tooltip>
-			<Tooltip>
+			<Tooltip openDelay={300}>
 				<TooltipTrigger>
 					<Muted className="flex flex-row items-center gap-2">
 						<Icon icon="i-carbon-time" />

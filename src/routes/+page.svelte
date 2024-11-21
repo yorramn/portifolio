@@ -29,7 +29,6 @@
 </script>
 
 <Title title={HomeData.title} />
-
 <ResponsiveContainer className="flex flex-col justify-center flex-1">
 	<div
 		class="flex flex-1 flex-col items-center justify-center gap-8 px-14 md:flex-row md:justify-between"
