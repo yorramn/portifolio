@@ -10,7 +10,6 @@
 	import ResponsiveContainer from '$lib/components/ui/responsive-container/responsive-container.svelte';
 	import { Tooltip, TooltipContent, TooltipTrigger } from '$lib/components/ui/tooltip';
 	import H1 from '$lib/components/ui/typography/h1.svelte';
-	import Large from '$lib/components/ui/typography/large.svelte';
 	import Muted from '$lib/components/ui/typography/muted.svelte';
 	import HomeData from '$lib/data/home';
 	import { mode } from 'mode-watcher';
@@ -50,9 +49,13 @@
 							<img
 								src={$mode === 'dark' ? item.logo.dark : item.logo.light}
 								class="h-[150px] w-[150px]"
-								alt={item.label}
+								alt={item.name}
 							/>
-							<Large>{item.label}</Large>
+							<a href={`/skills/${item.slug}`}>
+								<Button variant="ghost">
+									{item.name}
+								</Button>
+							</a>
 						</CarouselItem>
 					{/each}
 				</CarouselContent>

@@ -1,5 +1,6 @@
-import Assets from './assets';
 import BaseData from './base';
+import { getSkills } from './skills';
+import type { Skill } from './types';
 
 const title = 'Home';
 
@@ -19,13 +20,7 @@ const hero: {
 	]
 };
 
-const carousel: Array<{ label: string; logo: (typeof Assets)[keyof typeof Assets] }> = [
-	{ label: 'Typescript', logo: Assets.TypeScript },
-	{ label: 'Svelte', logo: Assets.Svelte },
-	{ label: 'Tailwindcss', logo: Assets.Tailwind },
-	{ label: 'UnoCSS', logo: Assets.Unocss },
-	{ label: 'Vite', logo: Assets.Vite }
-];
+const carousel: Array<Skill> = getSkills();
 
 const HomeData = {
 	title,
