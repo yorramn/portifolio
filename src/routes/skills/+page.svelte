@@ -7,6 +7,7 @@
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import Muted from '$lib/components/ui/typography/muted.svelte';
 	import SkillsData, { groupByCategory } from '$lib/data/skills';
+	import { href } from '$lib/utils';
 	import { mode } from 'mode-watcher';
 
 	let query = $state('');
@@ -35,7 +36,7 @@
 							<FancyCard
 								bgImg={$mode === 'light' ? item.logo.light : item.logo.dark}
 								color={item.color}
-								href={`/skills/${item.slug}`}
+								href={href(`/skills/${item.slug}`)}
 							>
 								<CardContent>
 									<CardTitle>{item.name}</CardTitle>

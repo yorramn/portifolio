@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Assets from '$lib/data/assets';
 	import type { Experience } from '$lib/data/types';
-	import { computeExactDuration, getMonthName } from '$lib/utils';
+	import { computeExactDuration, getMonthName, href } from '$lib/utils';
 	import { ellipsify } from '@riadh-adrani/utils';
 	import SkillBadge from '../common/skill-badge/skill-badge.svelte';
 	import { Avatar, AvatarFallback } from '../ui/avatar';
@@ -33,7 +33,7 @@
 	] as const);
 </script>
 
-<FancyCard color={it.color} href={`/experience/${it.slug}`}>
+<FancyCard color={it.color} href={href(`/experience/${it.slug}`)}>
 	<CardContent class="flex flex-col gap-8 sm:flex-row">
 		<Avatar>
 			<AvatarFallback>

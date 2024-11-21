@@ -12,6 +12,7 @@
 	import ExperienceData from '$lib/data/experience';
 	import ProjectsData from '$lib/data/projects';
 	import type { Skill } from '$lib/data/types';
+	import { href } from '$lib/utils';
 	import { mode } from 'mode-watcher';
 
 	let { data }: { data: { item?: Skill } } = $props();
@@ -72,7 +73,7 @@
 			<div class="flex flex-row flex-wrap items-center gap-2 py-4">
 				<Muted>Related items</Muted>
 				{#each related as item}
-					<a href={item.link}>
+					<a href={href(item.link)}>
 						<Badge>{item.name}</Badge>
 					</a>
 				{/each}
