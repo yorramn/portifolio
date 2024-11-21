@@ -9,7 +9,8 @@
 </script>
 
 <div
-	class="border-1 absolute left-0 right-0 top-0 flex h-[50px] flex-row items-center border-b px-8"
+	class="border-1 absolute left-0 right-0 top-0 z-10 flex h-[50px] flex-row items-center border-b bg-[--bg] px-8 backdrop-blur-xl"
+	style="--bg : hsl(var(--background) / 0.5)"
 >
 	<div class="sm:flex-1">
 		<a href="/" class="flex flex-row items-center justify-start gap-2 text-2xl">

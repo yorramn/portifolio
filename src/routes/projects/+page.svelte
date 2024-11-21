@@ -82,7 +82,7 @@
 				>
 			{/each}
 		</div>
-		<div class="grid grid-cols-3 gap-4">
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 			{#each result as it}
 				<FancyCard color={it.color} class="flex h-full flex-col">
 					<CardHeader class="flex w-full flex-col gap-4">
