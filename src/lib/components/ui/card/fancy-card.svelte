@@ -5,7 +5,7 @@
 	import { convertNamedToHexColor, NAMED_COLORS, type NamedColor } from '$lib/data/colors';
 
 	const {
-		color = NAMED_COLORS.white,
+		color = NAMED_COLORS.gray,
 		href,
 		bgImg,
 		tilt = 5,
