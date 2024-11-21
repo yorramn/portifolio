@@ -2,6 +2,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Tooltip, TooltipContent, TooltipTrigger } from '$lib/components/ui/tooltip';
 	import type { Skill } from '$lib/data/types';
+	import { href } from '$lib/utils';
 	import { mode } from 'mode-watcher';
 
 	const { skill }: { skill: Skill } = $props();
@@ -9,7 +10,7 @@
 
 <Tooltip openDelay={100}>
 	<TooltipTrigger class="group">
-		<a href={`/skills/${skill.slug}`}>
+		<a href={href(`/skills/${skill.slug}`)}>
 			<Button size="icon" variant="outline">
 				<img
 					class="size-[18px] grayscale-[0.75] group-hover:grayscale-0"

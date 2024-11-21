@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Assets from '$lib/data/assets';
 	import type { Education } from '$lib/data/types';
-	import { computeExactDuration, getMonthName } from '$lib/utils';
+	import { computeExactDuration, getMonthName, href } from '$lib/utils';
 	import { ellipsify } from '@riadh-adrani/utils';
 	import { Avatar, AvatarFallback } from '../ui/avatar';
 	import { Badge } from '../ui/badge';
@@ -28,7 +28,7 @@
 	let location = `${it.organization}, ${it.location}`;
 </script>
 
-<FancyCard href={`/education/${it.slug}`}>
+<FancyCard href={href(`/education/${it.slug}`)}>
 	<CardContent class="flex flex-col gap-8 sm:flex-row">
 		<Avatar>
 			<AvatarFallback>

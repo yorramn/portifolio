@@ -16,6 +16,7 @@
 	import ExperienceData from '$lib/data/experience';
 	import ProjectsData from '$lib/data/projects';
 	import SkillsData from '$lib/data/skills';
+	import { href } from '$lib/utils';
 
 	type Item = {
 		name: string;
@@ -124,7 +125,7 @@
 					</div>
 					<div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 						{#each group.items as item (item.link)}
-							<FancyCard color={item.color} href={item.link}>
+							<FancyCard color={item.color} href={href(item.link)}>
 								<CardContent class="flex flex-row items-center gap-4">
 									<Avatar>
 										<AvatarFallback>

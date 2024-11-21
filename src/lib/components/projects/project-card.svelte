@@ -1,6 +1,10 @@
 <script lang="ts">
 	import Assets from '$lib/data/assets';
+	import type { Project } from '$lib/data/types';
+	import { computeExactDuration, getMonthName, href } from '$lib/utils';
 	import { ellipsify } from '@riadh-adrani/utils';
+	import { mode } from 'mode-watcher';
+	import SkillBadge from '../common/skill-badge/skill-badge.svelte';
 	import AvatarFallback from '../ui/avatar/avatar-fallback.svelte';
 	import AvatarImage from '../ui/avatar/avatar-image.svelte';
 	import Avatar from '../ui/avatar/avatar.svelte';
@@ -8,6 +12,7 @@
 	import Button from '../ui/button/button.svelte';
 	import { CardHeader } from '../ui/card';
 	import CardContent from '../ui/card/card-content.svelte';
+	import CardFooter from '../ui/card/card-footer.svelte';
 	import CardTitle from '../ui/card/card-title.svelte';
 	import FancyCard from '../ui/card/fancy-card.svelte';
 	import Icon from '../ui/icon/icon.svelte';
@@ -15,11 +20,6 @@
 	import { Tooltip, TooltipTrigger } from '../ui/tooltip';
 	import TooltipContent from '../ui/tooltip/tooltip-content.svelte';
 	import Muted from '../ui/typography/muted.svelte';
-	import CardFooter from '../ui/card/card-footer.svelte';
-	import SkillBadge from '../common/skill-badge/skill-badge.svelte';
-	import { mode } from 'mode-watcher';
-	import type { Project } from '$lib/data/types';
-	import { computeExactDuration, getMonthName } from '$lib/utils';
 
 	const { project }: { project: Project } = $props();
 
@@ -34,7 +34,11 @@
 	let exactDuration = $derived(computeExactDuration(project.period.from, project.period.to));
 </script>
 
-<FancyCard color={project.color} class="flex h-full flex-col" href={`/projects/${project.slug}`}>
+<FancyCard
+	color={project.color}
+	class="flex h-full flex-col"
+	href={href(`/projects/${project.slug}`)}
+>
 	<CardHeader class="flex w-full flex-col gap-4">
 		<Avatar>
 			<AvatarFallback>

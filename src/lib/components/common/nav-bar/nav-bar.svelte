@@ -15,6 +15,7 @@
 	import Large from '$lib/components/ui/typography/large.svelte';
 	import BaseData from '$lib/data/base';
 	import NavBarData from '$lib/data/nav-bar';
+	import { href } from '$lib/utils';
 	import { mode, toggleMode } from 'mode-watcher';
 
 	let isDarkMode = $derived($mode === 'dark');
@@ -25,7 +26,7 @@
 	style="--bg : hsl(var(--background) / 0.5)"
 >
 	<div class="sm:flex-1">
-		<a href="/" class="flex flex-row items-center justify-start gap-2 text-2xl">
+		<a href={href('/')} class="flex flex-row items-center justify-start gap-2 text-2xl">
 			<Tooltip>
 				<TooltipTrigger>
 					<Icon icon={NavBarData.left.icon} />
@@ -41,7 +42,7 @@
 	<!-- larger than sm -->
 	<div class="hidden flex-[2] flex-row items-center justify-center gap-2 sm:flex">
 		{#each NavBarData.items as item}
-			<a href={item.href}>
+			<a href={href(item.href)}>
 				<Tooltip>
 					<TooltipTrigger>
 						<Button class="flex flex-row items-center justify-center gap-2" variant="ghost">
@@ -57,7 +58,7 @@
 		{/each}
 	</div>
 	<div class="hidden flex-row items-center justify-end gap-2 sm:flex sm:flex-1">
-		<a href="/search">
+		<a href={href('/search')}>
 			<Button variant="ghost" class="text-xl">
 				<Icon icon="i-carbon-search" />
 			</Button>
@@ -69,7 +70,7 @@
 
 	<!-- sm -->
 	<div class="flex flex-[2] flex-row items-center justify-center sm:hidden">
-		<a href="/">
+		<a href={href('/')}>
 			<Large>{BaseData.fullName}</Large>
 		</a>
 	</div>
@@ -84,7 +85,7 @@
 				<div class="flex flex-col gap-2 pt-4">
 					{#each NavBarData.items as item}
 						<DialogClose>
-							<a href={item.href} class="w-full">
+							<a href={href(item.href)} class="w-full">
 								<Button
 									class="flex w-full flex-row items-center justify-start gap-2"
 									variant="ghost"
@@ -97,7 +98,7 @@
 					{/each}
 					<Separator />
 					<DialogClose>
-						<a href={'/search'} class="w-full">
+						<a href={href('/search')} class="w-full">
 							<Button class="flex w-full flex-row items-center justify-start gap-2" variant="ghost">
 								<Icon icon={'i-carbon-search'} className="text-xl" />
 								<div>Search</div>

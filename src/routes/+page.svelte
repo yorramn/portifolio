@@ -12,6 +12,7 @@
 	import H1 from '$lib/components/ui/typography/h1.svelte';
 	import Muted from '$lib/components/ui/typography/muted.svelte';
 	import HomeData from '$lib/data/home';
+	import { href } from '$lib/utils';
 	import { mode } from 'mode-watcher';
 </script>
 
@@ -51,7 +52,7 @@
 								class="h-[150px] w-[150px]"
 								alt={item.name}
 							/>
-							<a href={`/skills/${item.slug}`}>
+							<a href={href(`/skills/${item.slug}`)}>
 								<Button variant="ghost">
 									{item.name}
 								</Button>

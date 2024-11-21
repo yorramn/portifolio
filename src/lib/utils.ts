@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { cubicOut } from 'svelte/easing';
 import type { TransitionConfig } from 'svelte/transition';
+import { base } from '$app/paths';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -128,3 +129,5 @@ const monthNames = [
 export const getMonthName = (index: number): string => {
 	return monthNames[index];
 };
+
+export const href = (url: string) => `${base}${url}`;

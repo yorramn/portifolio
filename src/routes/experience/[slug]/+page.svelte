@@ -20,7 +20,7 @@
 	import Muted from '$lib/components/ui/typography/muted.svelte';
 	import Assets from '$lib/data/assets';
 	import type { Experience } from '$lib/data/types';
-	import { computeExactDuration } from '$lib/utils';
+	import { computeExactDuration, href } from '$lib/utils';
 	import { mode } from 'mode-watcher';
 
 	let { data }: { data: { item?: Experience } } = $props();
@@ -52,7 +52,7 @@
 				</div>
 				<div class="flex flex-row flex-wrap gap-2">
 					{#each data.item.skills as skill (skill.slug)}
-						<a href={`/skills/${skill.slug}`}>
+						<a href={href(`/skills/${skill.slug}`)}>
 							<Badge variant="outline" class="flex flex-row items-center justify-center gap-2">
 								<img
 									class="h-[20px] w-[20px]"
