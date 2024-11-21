@@ -1,5 +1,7 @@
 <script lang="ts">
+	import EmptyResult from '$lib/components/common/empty-result/empty-result.svelte';
 	import SearchPage from '$lib/components/common/search-page/search-page.svelte';
+	import SkillBadge from '$lib/components/common/skill-badge/skill-badge.svelte';
 	import AvatarFallback from '$lib/components/ui/avatar/avatar-fallback.svelte';
 	import AvatarImage from '$lib/components/ui/avatar/avatar-image.svelte';
 	import Avatar from '$lib/components/ui/avatar/avatar.svelte';
@@ -71,7 +73,7 @@
 </script>
 
 <SearchPage title={ProjectsData.title} {onSearch}>
-	<div class="flex flex-col gap-8">
+	<div class="flex flex-1 flex-col gap-8">
 		<div class="flex flex-row flex-wrap gap-2">
 			{#each filters as it (it.slug)}
 				<Toggle
@@ -82,71 +84,62 @@
 				>
 			{/each}
 		</div>
-		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-			{#each result as it (it.slug)}
-				<FancyCard color={it.color} class="flex h-full flex-col">
-					<CardHeader class="flex w-full flex-col gap-4">
-						<Avatar>
-							<AvatarFallback>
-								<img src={Assets.Unknown.light} alt={it.name} />
-							</AvatarFallback>
-							<AvatarImage src={$mode === 'dark' ? it.logo.dark : it.logo.light} />
-						</Avatar>
-						<div class="flex w-full flex-row items-center overflow-x-hidden">
-							<CardTitle class="line-clamp-1 flex-1 truncate text-ellipsis text-nowrap"
-								>{it.name}</CardTitle
-							>
-							{#each it.links as link (link.to)}
-								<a href={link.to} target={link.newTab ? '_blank' : undefined}>
-									<Tooltip>
-										<TooltipTrigger>
-											<Button size="icon" variant="outline"><Icon icon="i-carbon-link" /></Button>
-										</TooltipTrigger>
-										<TooltipContent>
-											{link.label}
-										</TooltipContent>
-									</Tooltip>
-								</a>
-							{/each}
-						</div>
-						<Separator />
-					</CardHeader>
-					<CardContent class="flex flex-1 flex-col gap-4">
-						<Muted className="flex flex-row gap-2 items-center">
-							<Icon icon="i-carbon-assembly-cluster" />
-							<Muted>{it.type}</Muted>
-						</Muted>
-						<Muted className="flex flex-row gap-2 items-center">
-							<Icon icon="i-carbon-time" />
-							<Muted>Duration</Muted>
-						</Muted>
-						<Muted className="flex-1">{ellipsify(it.description, 100)}</Muted>
-						<div class="flex w-full flex-row items-center justify-between">
-							<Badge variant="outline">Start</Badge>
-							<Badge variant="outline">End</Badge>
-						</div>
-						<Separator />
-					</CardContent>
-					<CardFooter class="flex flex-row flex-wrap items-center gap-2">
-						{#each it.skills as skill (skill.slug)}
-							<Tooltip openDelay={100}>
-								<TooltipTrigger>
-									<a href={`/skills/${skill.slug}`}>
-										<Button size="icon" variant="outline"
-											><img
-												class="size-[20px]"
-												src={$mode === 'dark' ? skill.logo.dark : skill.logo.light}
-												alt={skill.name}
-											/></Button
-										>
+		{#if result.length === 0}
+			<EmptyResult />
+		{:else}
+			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+				{#each result as it (it.slug)}
+					<FancyCard color={it.color} class="flex h-full flex-col">
+						<CardHeader class="flex w-full flex-col gap-4">
+							<Avatar>
+								<AvatarFallback>
+									<img src={Assets.Unknown.light} alt={it.name} />
+								</AvatarFallback>
+								<AvatarImage src={$mode === 'dark' ? it.logo.dark : it.logo.light} />
+							</Avatar>
+							<div class="flex w-full flex-row items-center overflow-x-hidden">
+								<CardTitle class="line-clamp-1 flex-1 truncate text-ellipsis text-nowrap"
+									>{it.name}</CardTitle
+								>
+								{#each it.links as link (link.to)}
+									<a href={link.to} target={link.newTab ? '_blank' : undefined}>
+										<Tooltip>
+											<TooltipTrigger>
+												<Button size="icon" variant="outline"><Icon icon="i-carbon-link" /></Button>
+											</TooltipTrigger>
+											<TooltipContent>
+												{link.label}
+											</TooltipContent>
+										</Tooltip>
 									</a>
-								</TooltipTrigger>
-								<TooltipContent>{skill.name}</TooltipContent>
-							</Tooltip>
-						{/each}
-					</CardFooter>
-				</FancyCard>
-			{/each}
-		</div>
+								{/each}
+							</div>
+							<Separator />
+						</CardHeader>
+						<CardContent class="flex flex-1 flex-col gap-4">
+							<Muted className="flex flex-row gap-2 items-center">
+								<Icon icon="i-carbon-assembly-cluster" />
+								<Muted>{it.type}</Muted>
+							</Muted>
+							<Muted className="flex flex-row gap-2 items-center">
+								<Icon icon="i-carbon-time" />
+								<Muted>Duration</Muted>
+							</Muted>
+							<Muted className="flex-1">{ellipsify(it.description, 100)}</Muted>
+							<div class="flex w-full flex-row items-center justify-between">
+								<Badge variant="outline">Start</Badge>
+								<Badge variant="outline">End</Badge>
+							</div>
+							<Separator />
+						</CardContent>
+						<CardFooter class="flex flex-row flex-wrap items-center gap-2">
+							{#each it.skills as skill (skill.slug)}
+								<SkillBadge {skill} />
+							{/each}
+						</CardFooter>
+					</FancyCard>
+				{/each}
+			</div>
+		{/if}
 	</div>
 </SearchPage>

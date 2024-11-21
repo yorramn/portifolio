@@ -2,16 +2,15 @@
 	import Assets from '$lib/data/assets';
 	import type { Experience } from '$lib/data/types';
 	import { computeExactDuration, getMonthName } from '$lib/utils';
-	import { mode } from 'mode-watcher';
+	import { ellipsify } from '@riadh-adrani/utils';
+	import SkillBadge from '../common/skill-badge/skill-badge.svelte';
 	import { Avatar, AvatarFallback } from '../ui/avatar';
 	import { Badge } from '../ui/badge';
-	import Button from '../ui/button/button.svelte';
 	import { CardContent, CardTitle } from '../ui/card';
 	import FancyCard from '../ui/card/fancy-card.svelte';
 	import Icon from '../ui/icon/icon.svelte';
 	import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 	import Muted from '../ui/typography/muted.svelte';
-	import { ellipsify } from '@riadh-adrani/utils';
 
 	const { it }: { it: Experience } = $props();
 
@@ -77,20 +76,7 @@
 			<div>{ellipsify(it.description, 150)}</div>
 			<div class="flex flex-row flex-wrap gap-2">
 				{#each it.skills as skill (skill.slug)}
-					<Tooltip openDelay={100}>
-						<TooltipTrigger class="group">
-							<a href={`/skills/${skill.slug}`}>
-								<Button size="icon" variant="outline"
-									><img
-										class="size-[20px] grayscale-[0.75] group-hover:grayscale-0"
-										src={$mode === 'dark' ? skill.logo.dark : skill.logo.light}
-										alt={skill.name}
-									/></Button
-								>
-							</a>
-						</TooltipTrigger>
-						<TooltipContent>{skill.name}</TooltipContent>
-					</Tooltip>
+					<SkillBadge {skill} />
 				{/each}
 			</div>
 		</div>
