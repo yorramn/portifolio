@@ -8,10 +8,12 @@
 	import FancyCard from '$lib/components/ui/card/fancy-card.svelte';
 	import Icon from '$lib/components/ui/icon/icon.svelte';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
+	import { Tooltip, TooltipContent, TooltipTrigger } from '$lib/components/ui/tooltip';
 	import Large from '$lib/components/ui/typography/large.svelte';
 	import Assets from '$lib/data/assets';
 	import { NAMED_COLORS } from '$lib/data/colors';
 	import EducationData from '$lib/data/education';
+	import ExperienceData from '$lib/data/experience';
 	import ProjectsData from '$lib/data/projects';
 	import SkillsData from '$lib/data/skills';
 
@@ -35,7 +37,7 @@
 		const projects = ProjectsData.items.filter((it) =>
 			it.name.toLowerCase().includes(q.toLowerCase())
 		);
-		const experience = ProjectsData.items.filter((it) =>
+		const experience = ExperienceData.items.filter((it) =>
 			it.name.toLowerCase().includes(q.toLowerCase())
 		);
 		const education = EducationData.items.filter((it) =>
@@ -46,7 +48,7 @@
 
 		if (skills.length) {
 			groups.push({
-				icon: 'i-carbon-skill-level',
+				icon: 'i-carbon-assembly-cluster',
 				name: 'Skills',
 				items: skills.map((it) => ({
 					name: it.name,
@@ -59,7 +61,7 @@
 
 		if (projects.length) {
 			groups.push({
-				icon: 'i-carbon-assembly-cluster',
+				icon: 'i-carbon-cube',
 				name: 'Projects',
 				items: projects.map((it) => ({
 					name: it.name,
@@ -72,7 +74,7 @@
 
 		if (experience.length) {
 			groups.push({
-				icon: 'i-carbon-time',
+				icon: 'i-carbon-development',
 				name: 'Experience',
 				items: experience.map((it) => ({
 					name: it.name,
@@ -120,7 +122,7 @@
 						</div>
 						<Separator />
 					</div>
-					<div class="grid grid-cols-4 gap-2">
+					<div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 						{#each group.items as item (item.link)}
 							<FancyCard color={item.color} href={item.link}>
 								<CardContent class="flex flex-row items-center gap-4">
@@ -130,7 +132,14 @@
 										</AvatarFallback>
 										<AvatarImage src={item.logo} />
 									</Avatar>
-									<CardTitle>{item.name}</CardTitle>
+									<Tooltip>
+										<TooltipTrigger>
+											<CardTitle class="line-clamp-2 truncate text-ellipsis text-left"
+												>{item.name}</CardTitle
+											>
+										</TooltipTrigger>
+										<TooltipContent>{item.name}</TooltipContent>
+									</Tooltip>
 								</CardContent>
 							</FancyCard>
 						{/each}
