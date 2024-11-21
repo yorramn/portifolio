@@ -24,13 +24,13 @@ body {
 		--accent-foreground: 243 0% 15%;
 		--destructive: 0 50% 50%;
 		--destructive-foreground: 243 0% 100%;
-		--border: 243 20% 82%;
-		--input: 243 20% 50%;
+		--border: 243 2% 82%;
+		--input: 243 2% 50%;
 		--ring: 243 0% 4%;
 		--radius: 0.5rem;
 	}
 	.dark {
-		--background: 243 10% 5%;
+		--background: 0 0% 0%;
 		--foreground: 243 0% 90%;
 		--card: 243 0% 0%;
 		--card-foreground: 243 0% 90%;
@@ -46,8 +46,8 @@ body {
 		--accent-foreground: 243 0% 90%;
 		--destructive: 0 50% 30%;
 		--destructive-foreground: 243 0% 90%;
-		--border: 243 20% 18%;
-		--input: 243 20% 18%;
+		--border: 250 2% 25%;
+		--input: 250 2% 25%;
 		--ring: 243 0% 100%;
 		--radius: 0.5rem;
 	}
