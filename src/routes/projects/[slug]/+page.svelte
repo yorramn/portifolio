@@ -40,12 +40,12 @@
 				<H1>{data.item.name}</H1>
 				<Muted>{data.item.type}</Muted>
 				<Separator />
-				<div class="flex flex-row flex-wrap gap-2">
+				<div class="flex flex-row flex-wrap justify-center gap-2">
 					{#each data.item.links as link (link.to)}
 						<a href={link.to} target="_blank"><Badge variant="outline">{link.label}</Badge></a>
 					{/each}
 				</div>
-				<div class="flex flex-row flex-wrap gap-2">
+				<div class="flex flex-row flex-wrap justify-center gap-2">
 					{#each data.item.skills as skill (skill.slug)}
 						<a href={href(`/skills/${skill.slug}`)}>
 							<Badge variant="outline" class="flex flex-row items-center justify-center gap-2">

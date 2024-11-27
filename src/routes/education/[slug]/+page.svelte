@@ -45,7 +45,7 @@
 				<Muted>{data.item.organization} · {data.item.location}</Muted>
 				<Muted>{duration}</Muted>
 				<Separator />
-				<div class="flex flex-row flex-wrap gap-2">
+				<div class="flex flex-row flex-wrap justify-center gap-2">
 					{#each data.item.subjects as subject (subject)}
 						<Badge variant="outline" class="flex flex-row items-center justify-center gap-2">
 							<Muted>{subject}</Muted>
