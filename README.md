@@ -31,16 +31,16 @@ You can fork the project, maintaining a link to the original repo using the `for
 
 ```bash
 # ssh
-git clone git@github.com:RiadhAdrani/slick-portfolio-svelte.git protfolio
+git clone git@github.com:RiadhAdrani/slick-portfolio-svelte-5.git protfolio
 
 # https
-git clone https://github.com/RiadhAdrani/slick-portfolio-svelte.git protfolio
+git clone https://github.com/RiadhAdrani/slick-portfolio-svelte-5.git protfolio
 ```
 
 - using `degit` npm executable :
 
 ```bash
-npx degit RiadhAdrani/slick-portfolio-svelte portfolio
+npx degit RiadhAdrani/slick-portfolio-svelte-5 portfolio
 ```
 
 if you don't have `degit`, it will prompt you to accept, enter `y`.
@@ -49,7 +49,7 @@ if you don't have `degit`, it will prompt you to accept, enter `y`.
 >
 > ```bash
 > # ssh
-> git remote add main git@github.com:RiadhAdrani/slick-portfolio-svelte.git
+> git remote add main git@github.com:RiadhAdrani/slick-portfolio-svelte-5.git
 > ```
 
 ## Deploy to GitHub pages
