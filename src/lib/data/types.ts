@@ -23,13 +23,18 @@ export enum ContractType {
 
 export type Asset = { light: string; dark: string };
 
+export type Screenshot = {
+	src: string;
+	label: string;
+};
+
 export interface Item<S extends string = string> {
 	slug: S;
 	name: string;
 	logo: Asset;
 	shortDescription: string;
 	description: string;
-	screenshots?: Array<{ src: string; label: string }>;
+	screenshots?: Array<Screenshot>;
 }
 
 export interface Link {
