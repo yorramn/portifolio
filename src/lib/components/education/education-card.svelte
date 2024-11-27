@@ -65,7 +65,7 @@
 				</TooltipTrigger>
 			</Tooltip>
 			<div>
-				{ellipsify(it.description, 150)}
+				{ellipsify(it.shortDescription, 150)}
 			</div>
 			<div class="flex flex-row flex-wrap gap-2">
 				{#each it.subjects as subject (subject)}
