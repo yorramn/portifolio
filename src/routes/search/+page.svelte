@@ -17,6 +17,7 @@
 	import ProjectsData from '$lib/data/projects';
 	import SkillsData from '$lib/data/skills';
 	import { href } from '$lib/utils';
+	import { mode } from 'mode-watcher';
 
 	type Item = {
 		name: string;
@@ -53,7 +54,7 @@
 				name: 'Skills',
 				items: skills.map((it) => ({
 					name: it.name,
-					logo: it.logo.light,
+					logo: $mode === 'dark' ? it.logo.dark : it.logo.light,
 					link: `/skills/${it.slug}`,
 					color: it.color
 				}))
@@ -66,7 +67,7 @@
 				name: 'Projects',
 				items: projects.map((it) => ({
 					name: it.name,
-					logo: it.logo.light,
+					logo: $mode === 'dark' ? it.logo.dark : it.logo.light,
 					link: `/projects/${it.slug}`,
 					color: it.color
 				}))
@@ -79,7 +80,7 @@
 				name: 'Experience',
 				items: experience.map((it) => ({
 					name: it.name,
-					logo: it.logo.light,
+					logo: $mode === 'dark' ? it.logo.dark : it.logo.light,
 					link: `/experience/${it.slug}`,
 					color: it.color
 				}))
@@ -92,7 +93,7 @@
 				name: 'Education',
 				items: education.map((it) => ({
 					name: it.degree,
-					logo: it.logo.light,
+					logo: $mode === 'dark' ? it.logo.dark : it.logo.light,
 					link: `/education/${it.slug}`,
 					color: NAMED_COLORS.gray
 				}))

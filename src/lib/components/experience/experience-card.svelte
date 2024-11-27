@@ -11,6 +11,8 @@
 	import Icon from '../ui/icon/icon.svelte';
 	import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 	import Muted from '../ui/typography/muted.svelte';
+	import { mode } from 'mode-watcher';
+	import AvatarImage from '../ui/avatar/avatar-image.svelte';
 
 	const { it }: { it: Experience } = $props();
 
@@ -39,6 +41,7 @@
 			<AvatarFallback>
 				<img src={Assets.Unknown.light} alt={it.name} />
 			</AvatarFallback>
+			<AvatarImage src={$mode === 'dark' ? it.logo.dark : it.logo.light} />
 		</Avatar>
 		<div class="flex flex-col gap-4">
 			<CardTitle>{it.name}</CardTitle>
