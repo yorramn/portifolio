@@ -37,7 +37,7 @@ const Assets = {
 	Python: asset('python.png'),
 	NodeJs: asset('node.png'),
 	Deno: asset('deno.png', 'deno-dark.png'),
-	Svelte: asset('svelte.png'),
+	Svelte: asset('svelte.svg'),
 	ExpressJs: asset('express.png'),
 	JavaScript: asset('js.png'),
 	Fastify: asset('fastify.svg', 'fastify-dark.png'),
