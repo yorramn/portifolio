@@ -11,7 +11,7 @@
 	import Muted from '$lib/components/ui/typography/muted.svelte';
 	import Assets from '$lib/data/assets';
 	import type { Experience } from '$lib/data/types';
-	import { computeExactDuration, href } from '$lib/utils';
+	import { computeExactDuration, getMonthAndYear, href } from '$lib/utils';
 	import { mode } from 'mode-watcher';
 
 	let { data }: { data: { item?: Experience } } = $props();
@@ -22,7 +22,10 @@
 	);
 
 	let duration = $derived(
-		data.item ? computeExactDuration(data.item?.period.from, data.item?.period.to) : 'Unknown'
+		`${getMonthAndYear(data.item?.period.from)} - ${getMonthAndYear(data.item?.period.to)} · ${computeExactDuration(
+			data.item?.period.from ?? new Date(),
+			data.item?.period.to
+		)}`
 	);
 </script>
 

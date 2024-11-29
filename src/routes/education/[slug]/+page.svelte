@@ -11,7 +11,7 @@
 	import Muted from '$lib/components/ui/typography/muted.svelte';
 	import Assets from '$lib/data/assets';
 	import type { Education } from '$lib/data/types';
-	import { computeExactDuration } from '$lib/utils';
+	import { computeExactDuration, getMonthAndYear } from '$lib/utils';
 	import { mode } from 'mode-watcher';
 
 	let { data }: { data: { item?: Education } } = $props();
@@ -22,7 +22,10 @@
 	);
 
 	let duration = $derived(
-		data.item ? computeExactDuration(data.item?.period.from, data.item?.period.to) : 'Unknown'
+		`${getMonthAndYear(data.item?.period.from)} - ${getMonthAndYear(data.item?.period.to)} · ${computeExactDuration(
+			data.item?.period.from ?? new Date(),
+			data.item?.period.to
+		)}`
 	);
 </script>
 
@@ -34,7 +37,7 @@
 			<div class="flex w-full flex-col items-center justify-center gap-4">
 				<H1>{data.item.degree}</H1>
 				<Muted>{data.item.organization} · {data.item.location}</Muted>
-				<Muted>{duration}</Muted>
+				<Muted><Muted>{duration}</Muted></Muted>
 				<Separator />
 				<div class="flex flex-row flex-wrap justify-center gap-2">
 					{#each data.item.subjects as subject (subject)}

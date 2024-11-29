@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Assets from '$lib/data/assets';
 	import type { Project } from '$lib/data/types';
-	import { computeExactDuration, getMonthName, href } from '$lib/utils';
+	import { computeExactDuration, getMonthAndYear, href } from '$lib/utils';
 	import { ellipsify } from '@riadh-adrani/utils';
 	import { mode } from 'mode-watcher';
 	import ButtonLink from '../common/button-link/button-link.svelte';
@@ -16,27 +16,21 @@
 	import CardFooter from '../ui/card/card-footer.svelte';
 	import CardTitle from '../ui/card/card-title.svelte';
 	import FancyCard from '../ui/card/fancy-card.svelte';
-	import Icon from '../ui/icon/icon.svelte';
-	import Separator from '../ui/separator/separator.svelte';
-	import Muted from '../ui/typography/muted.svelte';
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
 		DropdownMenuItem,
 		DropdownMenuTrigger
 	} from '../ui/dropdown-menu';
+	import Icon from '../ui/icon/icon.svelte';
+	import Separator from '../ui/separator/separator.svelte';
 	import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
+	import Muted from '../ui/typography/muted.svelte';
 
 	const { project }: { project: Project } = $props();
 
-	let from = $derived(
-		`${getMonthName(project.period.from.getMonth())} ${project.period.from.getFullYear()}`
-	);
-	let to = $derived(
-		project.period.to
-			? `${getMonthName(project.period.to.getMonth())} ${project.period.to.getFullYear()}`
-			: 'Present'
-	);
+	let from = $derived(getMonthAndYear(project.period.from));
+	let to = $derived(getMonthAndYear(project.period.to));
 	let exactDuration = $derived(computeExactDuration(project.period.from, project.period.to));
 </script>
 

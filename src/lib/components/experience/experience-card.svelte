@@ -1,30 +1,25 @@
 <script lang="ts">
 	import Assets from '$lib/data/assets';
 	import type { Experience } from '$lib/data/types';
-	import { computeExactDuration, getMonthName, href } from '$lib/utils';
+	import { computeExactDuration, getMonthAndYear, href } from '$lib/utils';
 	import { ellipsify } from '@riadh-adrani/utils';
+	import { mode } from 'mode-watcher';
 	import SkillBadge from '../common/skill-badge/skill-badge.svelte';
 	import { Avatar, AvatarFallback } from '../ui/avatar';
+	import AvatarImage from '../ui/avatar/avatar-image.svelte';
 	import { Badge } from '../ui/badge';
 	import { CardContent, CardTitle } from '../ui/card';
 	import FancyCard from '../ui/card/fancy-card.svelte';
 	import Icon from '../ui/icon/icon.svelte';
 	import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 	import Muted from '../ui/typography/muted.svelte';
-	import { mode } from 'mode-watcher';
-	import AvatarImage from '../ui/avatar/avatar-image.svelte';
 
 	const { it }: { it: Experience } = $props();
 
 	const exactDuration = computeExactDuration(it.period.from, it.period.to);
 
-	let from = $derived(`${getMonthName(it.period.from.getMonth())} ${it.period.from.getFullYear()}`);
-
-	let to = $derived(
-		it.period.to
-			? `${getMonthName(it.period.to.getMonth())} ${it.period.to.getFullYear()}`
-			: 'Present'
-	);
+	let from = $derived(getMonthAndYear(it.period.from));
+	let to = $derived(getMonthAndYear(it.period.to));
 
 	let period = $derived(`${from} - ${to}`);
 
