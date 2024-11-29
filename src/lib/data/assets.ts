@@ -36,7 +36,7 @@ const Assets = {
 	Kotlin: asset('kotlin.png'),
 	Python: asset('python.png'),
 	NodeJs: asset('node.png'),
-	Deno: asset('deno.png', 'deno-dark.png'),
+	Deno: asset('deno.svg'),
 	Svelte: asset('svelte.svg'),
 	ExpressJs: asset('express.png'),
 	JavaScript: asset('js.png'),
