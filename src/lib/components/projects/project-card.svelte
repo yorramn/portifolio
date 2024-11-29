@@ -65,7 +65,6 @@
 			</CardTitle>
 			{#if project.links.length > 2}
 				<ButtonLink link={project.links[0]} />
-				<ButtonLink link={project.links[1]} />
 				<DropdownMenu>
 					<DropdownMenuTrigger>
 						<Button size="icon" variant="outline"
@@ -73,10 +72,12 @@
 						>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent>
-						{#each project.links.slice(2) as link (link.to)}
-							<DropdownMenuItem>
-								<a href={link.to} target={'_blank'}>{link.label}</a>
-							</DropdownMenuItem>
+						{#each project.links.slice(1) as link (link.to)}
+							<a href={link.to} target={'_blank'}>
+								<DropdownMenuItem>
+									{link.label}
+								</DropdownMenuItem>
+							</a>
 						{/each}
 					</DropdownMenuContent>
 				</DropdownMenu>
