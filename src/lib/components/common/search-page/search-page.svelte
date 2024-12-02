@@ -1,8 +1,7 @@
 <script lang="ts">
+	import Input from '$lib/components/ui/input/input.svelte';
 	import { onMount, type Snippet } from 'svelte';
 	import TitledPage from '../titled-page/titled-page.svelte';
-	import { browser } from '$app/environment';
-	import Input from '$lib/components/ui/input/input.svelte';
 
 	let {
 		title = 'Untitled',
@@ -11,9 +10,10 @@
 	}: { title: string; onSearch: (value: string) => void; children: Snippet } = $props();
 
 	let query = $state('');
+	let mounted = $state(false);
 
 	$effect(() => {
-		if (browser) {
+		if (mounted) {
 			let searchParams = new URLSearchParams(window.location.search);
 
 			searchParams.set('q', query);
@@ -32,8 +32,8 @@
 
 	onMount(() => {
 		let searchParams = new URLSearchParams(window.location.search);
-
 		query = searchParams.get('q') ?? '';
+		mounted = true;
 	});
 </script>
 

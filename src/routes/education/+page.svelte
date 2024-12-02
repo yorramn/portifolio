@@ -4,7 +4,6 @@
 	import EducationCard from '$lib/components/education/education-card.svelte';
 	import Icon from '$lib/components/ui/icon/icon.svelte';
 	import EducationData from '$lib/data/education';
-	import { onMount } from 'svelte';
 
 	let search = $state('');
 
@@ -20,20 +19,6 @@
 	);
 
 	const onSearch = (query: string) => (search = query);
-
-	onMount(() => {
-		const query = location.search;
-
-		if (query) {
-			const queryParams = new URLSearchParams(location.search);
-
-			const item = queryParams.get('item');
-
-			if (item) {
-				search = item;
-			}
-		}
-	});
 </script>
 
 <SearchPage title={EducationData.title} {onSearch}>

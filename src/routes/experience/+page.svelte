@@ -4,7 +4,6 @@
 	import ExperienceCard from '$lib/components/experience/experience-card.svelte';
 	import Icon from '$lib/components/ui/icon/icon.svelte';
 	import ExperienceData from '$lib/data/experience';
-	import { onMount } from 'svelte';
 
 	let search = $state('');
 
@@ -18,20 +17,6 @@
 	);
 
 	const onSearch = (query: string) => (search = query);
-
-	onMount(() => {
-		const query = location.search;
-
-		if (query) {
-			const queryParams = new URLSearchParams(location.search);
-
-			const item = queryParams.get('item');
-
-			if (item) {
-				search = item;
-			}
-		}
-	});
 </script>
 
 <SearchPage title={ExperienceData.title} {onSearch}>

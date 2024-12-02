@@ -7,7 +7,6 @@
 	import ProjectsData from '$lib/data/projects';
 	import SkillsData from '$lib/data/skills';
 	import type { Skill } from '$lib/data/types';
-	import { onMount } from 'svelte';
 
 	interface SkillFilter extends Skill {
 		isSelected?: boolean;
@@ -43,20 +42,6 @@
 	};
 
 	const onSearch = (query: string) => (search = query);
-
-	onMount(() => {
-		const query = location.search;
-
-		if (query) {
-			const queryParams = new URLSearchParams(location.search);
-
-			const item = queryParams.get('item');
-
-			if (item) {
-				search = item;
-			}
-		}
-	});
 </script>
 
 <SearchPage title={ProjectsData.title} {onSearch}>
