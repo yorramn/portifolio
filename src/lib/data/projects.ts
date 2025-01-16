@@ -1,8 +1,27 @@
 import Assets from './assets';
 import { getSkills } from './skills';
 import type { Project } from './types';
-
-const items: Array<Project> = [
+let projects : Array<any> = await fetch('https://api.github.com/users/yorramn/repos').then((res) => res.json());
+console.log(projects);
+projects = projects.filter(project => !project.private).map((project: any) => {
+	return {
+		slug: project.name,
+		color: '#5e95e3',
+		description: project.description ?? 'Sem descrição',
+		shortDescription: project.description ?? 'Sem descrição',
+		links: [
+			{ to: project.html_url, label: 'GitHub' }
+		],
+		logo: Assets.Unknown,
+		name: project.name,
+		period: {
+			from: new Date(project.created_at)
+		},
+		skills: getSkills(project.language?.toString()?.toLowerCase() ?? 'Não consta'),
+		type: 'Website Template'
+	};
+})
+let items: Array<Project> = [
 	{
 		slug: 'slick-portfolio-angular',
 		color: '#5e95e3',
@@ -67,8 +86,10 @@ const items: Array<Project> = [
 		]
 	}
 ];
+items = projects
+console.log(items);
 
-const title = 'Projects';
+const title = 'Projetos';
 
 const ProjectsData = { title, items };
 

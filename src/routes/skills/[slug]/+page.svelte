@@ -17,7 +17,7 @@
 
 	let { data }: { data: { item?: Skill } } = $props();
 
-	let title = $derived(`${data?.item?.name ?? 'Not Found'} - Skills`);
+	let title = $derived(`${data?.item?.name ?? 'Not Found'} - Habilidades`);
 	let banner = $derived(
 		($mode == 'dark' ? data?.item?.logo.dark : data.item?.logo.light) ?? Assets.Unknown.light
 	);
@@ -71,7 +71,7 @@
 		<Separator />
 		{#if related.length !== 0}
 			<div class="flex flex-row flex-wrap items-center gap-2 py-4">
-				<Muted>Related items</Muted>
+				<Muted>Projetos Relacionados</Muted>
 				{#each related as item}
 					<a href={href(item.link)}>
 						<Badge>{item.name}</Badge>

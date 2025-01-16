@@ -38,6 +38,6 @@
 </script>
 
 <TitledPage {title}>
-	<Input placeholder="Search..." bind:value={query} />
+	<Input placeholder="Buscar..." bind:value={query} />
 	{@render children()}
 </TitledPage>

@@ -2,54 +2,43 @@ import Assets from './assets';
 import { getSkills } from './skills';
 import { ContractType, type Experience } from './types';
 
-const title = 'Experience';
+const title = 'Experiências';
 
 const items: Array<Experience> = [
 	{
-		slug: 'open-sourcer',
-		company: 'Self-employed',
-		description: 'Creating awesome tools for developers.',
-		contract: ContractType.SelfEmployed,
+		slug: 'dev-fullstack-cast-group',
+		company: 'Cast Group',
+		description: 'Atuei como desenvolvedor fullstack e líder técnico. Construí aplicações web e mobile, além de liderar a equipe de desenvolvimento.',
+		contract: ContractType.FullTime,
 		type: 'Software Development',
 		location: 'Home',
-		period: { from: new Date() },
-		skills: getSkills('ts', 'js'),
-		name: 'Open Source Developer',
-		color: 'red',
-		links: [],
-		logo: Assets.Unknown,
-		shortDescription: 'Creating awesome tools for developers.'
-	},
-	{
-		slug: 'software-freelance',
-		company: 'Self-employed',
-		description: 'Creating awesome applications for customers.',
-		contract: ContractType.Freelance,
-		type: 'Software Development',
-		location: 'Home',
-		period: { from: new Date() },
-		skills: getSkills('svelte', 'ts', 'sass', 'css', 'html', 'js'),
-		name: 'Freelancer',
+		period: { from: new Date(2022, 1, 17), to: new Date(2024, 11, 1) },
+		skills: getSkills('ts', 'javascript', 'php', 'css', 'html', 'java', 'postgresql'),
+		name: 'Desenvolvedor Fullstack Junior / Líder Técnico',
 		color: 'blue',
-		links: [],
-		logo: Assets.Unknown,
-		shortDescription: 'Creating awesome applications for customers.'
+		links: [
+			{label: 'LinkedIn', to: 'https://www.linkedin.com/in/gabriel-yorramn-a15816289', newTab: true} 
+		],
+		logo: Assets.Php,
+		shortDescription: "Desenvolvimento de aplicações web e mobile, como API's, sites e aplicativos."
 	},
 	{
-		slug: 'software-freelance-junior',
-		company: 'Self-employed',
-		description: 'Creating awesome applications for customers.',
+		slug: 'dev-fullstack-montreal',
+		company: 'Montreal Informática',
+		description: 'Atuo como líder técnico, desenvolvedor fullstack pleno e analista de sistemas. Construo aplicações web e mobile, além de liderar a equipe de desenvolvimento.',
 		contract: ContractType.Freelance,
 		type: 'Software Development',
 		location: 'Home',
-		period: { from: new Date(2022, 0, 1), to: new Date() },
-		skills: getSkills('css', 'html', 'js'),
-		name: 'Junior Freelancer',
-		color: 'green',
-		links: [],
-		logo: Assets.Unknown,
-		shortDescription: 'Creating awesome applications for customers.'
-	}
+		period: { from: new Date(2024, 11, 17)},
+		skills: getSkills('ts', 'sass', 'css', 'html', 'javascript', 'php', 'postgresql'),
+		name: 'Desenvolvedor Fullstack Pleno / Líder Técnico',
+		color: 'orange',
+		links: [
+			{label: 'LinkedIn', to: 'https://www.linkedin.com/in/gabriel-yorramn-a15816289', newTab: true} 
+		],
+		logo: Assets.Php,
+		shortDescription: 'Desenvolvimento de aplicações web e sistemas de alta complexidade.'
+	},
 ];
 
 const ExperienceData = { title, items };

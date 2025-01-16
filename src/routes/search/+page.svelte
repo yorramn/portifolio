@@ -51,7 +51,7 @@
 		if (skills.length) {
 			groups.push({
 				icon: 'i-carbon-assembly-cluster',
-				name: 'Skills',
+				name: 'Habilidades',
 				items: skills.map((it) => ({
 					name: it.name,
 					logo: $mode === 'dark' ? it.logo.dark : it.logo.light,
@@ -108,7 +108,7 @@
 	const onSearch = (query: string) => (search = query);
 </script>
 
-<SearchPage title="Search" {onSearch}>
+<SearchPage title="Buscar" {onSearch}>
 	{#if result.length === 0}
 		<EmptyResult />
 	{:else}

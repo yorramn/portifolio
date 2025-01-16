@@ -11,6 +11,7 @@
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import { Tooltip, TooltipTrigger } from '$lib/components/ui/tooltip';
 	import TooltipContent from '$lib/components/ui/tooltip/tooltip-content.svelte';
+	import H3 from '$lib/components/ui/typography/h3.svelte';
 	import H4 from '$lib/components/ui/typography/h4.svelte';
 	import Large from '$lib/components/ui/typography/large.svelte';
 	import BaseData from '$lib/data/base';
