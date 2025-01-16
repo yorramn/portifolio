@@ -2,7 +2,7 @@ import Assets from './assets';
 import { getSkills } from './skills';
 import type { Project } from './types';
 const headers = new Headers();
-headers.append("Authorization", `Bearer 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`)
+headers.append("Authorization", `Bearer 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`)
 headers.append("Content-Type", `application/json`)
 let projects : Array<any> = await fetch('https://api.github.com/users/yorramn/repos', {headers: headers,}).then((res) => res.json());
 console.log(projects);
