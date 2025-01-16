@@ -1,28 +1,30 @@
 import Assets from './assets';
 import { getSkills } from './skills';
 import type { Project } from './types';
-// const headers = new Headers();
-// headers.append("Authorization", `Bearer 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`)
-// headers.append("Content-Type", `application/json`)
-// let projects : Array<any> = await fetch('https://api.github.com/users/yorramn/repos', {headers: headers}).then((res) => res.json());
-// projects = projects.filter(project => !project.private).map((project: any) => {
-// 	return {
-// 		slug: project.name,
-// 		color: '#5e95e3',
-// 		description: project.description ?? 'Sem descrição',
-// 		shortDescription: project.description ?? 'Sem descrição',
-// 		links: [
-// 			{ to: project.html_url, label: 'GitHub' }
-// 		],
-// 		logo: Assets.Unknown,
-// 		name: project.name,
-// 		period: {
-// 			from: new Date(project.created_at)
-// 		},
-// 		skills: getSkills(project.language?.toString()?.toLowerCase() ?? 'Não consta'),
-// 		type: 'Website Template'
-// 	};
-// })
+const headers = new Headers();
+headers.append("Authorization", `Bearer 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`)
+headers.append("Content-Type", `application/json`)
+let projects : Array<any> = await fetch('https://api.github.com/users/yorramn/repos', {headers: headers,}).then((res) => res.json());
+console.log(projects);
+
+projects = projects.filter(project => !project.private).map((project: any) => {
+	return {
+		slug: project.name,
+		color: '#5e95e3',
+		description: project.description ?? 'Sem descrição',
+		shortDescription: project.description ?? 'Sem descrição',
+		links: [
+			{ to: project.html_url, label: 'GitHub' }
+		],
+		logo: Assets.Unknown,
+		name: project.name,
+		period: {
+			from: new Date(project.created_at)
+		},
+		skills: getSkills(project.language?.toString()?.toLowerCase() ?? 'Não consta'),
+		type: 'Website Template'
+	};
+})
 let items: Array<Project> = [
 	{
 		slug: 'slick-portfolio-angular',
@@ -88,7 +90,7 @@ let items: Array<Project> = [
 		]
 	}
 ];
-// items = projects
+items = projects
 console.log(items);
 
 const title = 'Projetos';
