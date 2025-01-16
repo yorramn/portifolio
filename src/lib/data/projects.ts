@@ -1,15 +1,10 @@
 import Assets from './assets';
 import { getSkills } from './skills';
 import type { Project } from './types';
-let projects : Array<any> = await fetch('https://api.github.com/users/yorramn/repos', {
-	headers: {
-		
-	}
-}).then((res) => res.json());
-console.log(projects);
 const headers = new Headers();
-headers.append("authorization", `Bearer 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`)
-headers.append("content-type", `application/json`)
+headers.append("Authorization", `Bearer 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`)
+headers.append("Content-Type", `application/json`)
+let projects : Array<any> = await fetch('https://api.github.com/users/yorramn/repos', {headers: headers}).then((res) => res.json());
 projects = projects.filter(project => !project.private).map((project: any) => {
 	return {
 		slug: project.name,
