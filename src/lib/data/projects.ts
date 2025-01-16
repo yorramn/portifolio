@@ -1,30 +1,30 @@
 import Assets from './assets';
 import { getSkills } from './skills';
 import type { Project } from './types';
-const headers = new Headers();
-headers.append("Authorization", `Bearer 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`)
-headers.append("Content-Type", `application/json`)
-let projects : Array<any> = await fetch('https://api.github.com/users/yorramn/repos', {headers: headers,}).then((res) => res.json());
-console.log(projects);
+// const headers = new Headers();
+// headers.append("Authorization", `Bearer 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`)
+// headers.append("Content-Type", `application/json`)
+// let projects : Array<any> = await fetch('https://api.github.com/users/yorramn/repos', {headers: headers,}).then((res) => res.json());
+// console.log(projects);
 
-projects = projects.filter(project => !project.private).map((project: any) => {
-	return {
-		slug: project.name,
-		color: '#5e95e3',
-		description: project.description ?? 'Sem descrição',
-		shortDescription: project.description ?? 'Sem descrição',
-		links: [
-			{ to: project.html_url, label: 'GitHub' }
-		],
-		logo: Assets.Unknown,
-		name: project.name,
-		period: {
-			from: new Date(project.created_at)
-		},
-		skills: getSkills(project.language?.toString()?.toLowerCase() ?? 'Não consta'),
-		type: 'Website Template'
-	};
-})
+// projects = projects.filter(project => !project.private).map((project: any) => {
+// 	return {
+// 		slug: project.name,
+// 		color: '#5e95e3',
+// 		description: project.description ?? 'Sem descrição',
+// 		shortDescription: project.description ?? 'Sem descrição',
+// 		links: [
+// 			{ to: project.html_url, label: 'GitHub' }
+// 		],
+// 		logo: Assets.Unknown,
+// 		name: project.name,
+// 		period: {
+// 			from: new Date(project.created_at)
+// 		},
+// 		skills: getSkills(project.language?.toString()?.toLowerCase() ?? 'Não consta'),
+// 		type: 'Website Template'
+// 	};
+// })
 let items: Array<Project> = [
 	{
 		slug: 'slick-portfolio-angular',
@@ -90,7 +90,6 @@ let items: Array<Project> = [
 		]
 	}
 ];
-items = projects
 console.log(items);
 
 const title = 'Projetos';
