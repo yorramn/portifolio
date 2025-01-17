@@ -101,7 +101,7 @@ const items = [
 		slug: 'ts',
 		color: 'blue',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
+			'Utilizada para desenvolvimento de aplicações web, o TypeScript é uma linguagem de programação de código aberto desenvolvida e mantida pela Microsoft. É um superconjunto de JavaScript, adicionando tipagem estática opcional à linguagem. O TypeScript é projetado para o desenvolvimento de aplicativos grandes e transcompila para JavaScript. Como o TypeScript é um superconjunto de JavaScript, programas JavaScript existentes também são programas TypeScript válidos. O TypeScript pode ser usado para desenvolver aplicativos JavaScript para serem executados no lado do cliente (como JavaScript) e no lado do servidor (usando o Node.js).',
 		logo: Assets.TypeScript,
 		name: 'Typescript',
 		category: 'pro-lang'
@@ -110,7 +110,7 @@ const items = [
 		slug: 'css',
 		color: 'blue',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
+			'Deseja deixar sua aplicação mais bonita e elegante? CSS é indispensável na criação de aplicações web. O CSS é uma linguagem de estilo usada para descrever a apresentação de um documento escrito em HTML ou em XML. O CSS descreve como os elementos HTML devem ser exibidos na tela, no papel ou em outras mídias. O CSS economiza muito trabalho. Você pode controlar o layout de várias páginas da Web de uma só vez. Com o CSS, você pode controlar o layout de várias páginas da Web de uma só vez.',
 		logo: Assets.CSS,
 		name: 'CSS',
 		category: 'markup-style'
@@ -119,7 +119,7 @@ const items = [
 		slug: 'html',
 		color: 'orange',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
+			'Basicamente falando do "esqueleto" do site, HTML (que não é uma linguagem de programação), é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A estrutura de um documento HTML é composta por elementos, que são representados por tags. As tags são utilizadas para formatar o texto, inserir imagens, criar links, tabelas, listas, etc. O HTML é uma linguagem de marcação que é usada para o desenvolvimento de páginas web. O HTML é uma linguagem de marcação que é usada para o desenvolvimento de páginas web.',	
 		logo: Assets.HTML,
 		name: 'HTML',
 		category: 'markup-style'
@@ -128,7 +128,7 @@ const items = [
 		slug: 'java',
 		color: 'grey',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
+			'Presente em maioria das aplicações de servidor e com alto nível de segurança, Java está presente até nos jogos. Java é uma linguagem de programação de propósito geral que é concorrente, baseada em classes e orientada a objetos. Foi projetada para ter o mínimo de dependências de implementação possível. É uma linguagem de programação de propósito geral que é concorrente, baseada em classes e orientada a objetos. Foi projetada para ter o mínimo de dependências de implementação possível.',
 		logo: Assets.Java,
 		name: 'Java',
 		category: 'pro-lang'
@@ -137,7 +137,7 @@ const items = [
 		slug: 'postgresql',
 		color: 'white',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
+			'Assim como o MySQL, o PostgreSQL é um sistema de gerenciamento de banco de dados relacional de código aberto. O PostgreSQL é um sistema de gerenciamento de banco de dados relacional de objeto de código aberto com mais de 15 anos de desenvolvimento ativo. Ele tem uma sólida reputação por sua confiabilidade, integridade de dados e conformidade com padrões. O PostgreSQL é um sistema de gerenciamento de banco de dados relacional de objeto de código aberto com mais de 15 anos de desenvolvimento ativo. Ele tem uma sólida reputação por sua confiabilidade, integridade de dados e conformidade com padrões.',
 		logo: Assets.PostgreSQL,
 		name: 'PostgreSQL',
 		category: 'pro-lang'
@@ -146,7 +146,7 @@ const items = [
 		slug: 'sass',
 		color: 'pink',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
+			'Sass é uma extensão de CSS que adiciona novas funcionalidades e possibilita a criação de folhas de estilo mais complexas. O Sass é uma extensão de CSS que adiciona novas funcionalidades e possibilidades à linguagem. O Sass é uma extensão de CSS que adiciona novas funcionalidades e possibilidades à linguagem.',
 		logo: Assets.Sass,
 		name: 'SaaS',
 		category: 'markup-style'

@@ -70,7 +70,7 @@ const Assets = {
 	Unocss: asset('unocss.svg'),
 	Ruvy: asset('ruvy.svg'),
 	Postcss: asset('postcss.svg'),
-	Php: asset('php.webp'),
+	Php: asset('php.png'),
 };
 
 export default Assets;

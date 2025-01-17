@@ -11,7 +11,7 @@ const hero: {
 } = {
 	title: `${BaseData.fullName},`,
 	description:
-		'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+		'Há mais de 5 anos desenvolvendo aplicações, tirando do papel e colocando em prática os projetos que você sonha. Atuo com diversas tecnologias e estou sempre em busca de novos desafios.',
 	links: [
 		{ label: 'GitHub', href: 'https://github.com/yorramn', icon: 'i-carbon-logo-github' },
 		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/gabriel-yorramn-a15816289/', icon: 'i-carbon-logo-linkedin' },
