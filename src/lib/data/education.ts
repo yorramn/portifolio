@@ -28,7 +28,7 @@ const items: Array<Education> = [
 		slug: 'dummy-education-item-2',
 		subjects: ['Web', 'HTML', 'CSS', 'PHP', 'SpringBoot', 'JRE/JSE', 'JavaScript', 'Algorithm', 'Algebra', 'Java', 'English']
 	}
-];
+].sort((a, b) => b.period.from.getTime() - a.period.from.getTime());
 
 const EducationData = { title, items };
 
