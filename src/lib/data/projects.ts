@@ -8,6 +8,7 @@ async function fetchGitHubRepos(username : string) : Promise<any> {
             return;
         }
         const response = await fetch(`https://api.github.com/users/${username}/repos`);
+		// console.log(await response.json());
         if (!response.ok) {
             throw new Error(`Erro ao buscar repositórios: ${response.status} - ${response.statusText}`);
         }
@@ -18,6 +19,7 @@ async function fetchGitHubRepos(username : string) : Promise<any> {
 }
 const projects : Array<any> = Array.from(await fetchGitHubRepos('yorramn')).map((project : any) => {
 	return {
+		id : project.id,
 		slug: project.name,
 		color: '#5e95e3',
 		description: project.description ?? 'README',
@@ -33,7 +35,9 @@ const projects : Array<any> = Array.from(await fetchGitHubRepos('yorramn')).map(
 		skills: getSkills(project),
 		type: 'Website Template'
 	}
-}).sort((a : any, b : any) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime())
+})
+.filter((project : any) => project.slug !== 'portifolio')
+.sort((a : any, b : any) => new Date(b.period.from).getTime() - new Date(a.period.from).getTime())
 
 let items: Array<Project> = [];
 
