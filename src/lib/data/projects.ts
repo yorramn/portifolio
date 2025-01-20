@@ -1,96 +1,43 @@
 import Assets from './assets';
 import { getSkills } from './skills';
 import type { Project } from './types';
-// const headers = new Headers();
-// headers.append("Authorization", `Bearer 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`)
-// headers.append("Content-Type", `application/json`)
-// let projects : Array<any> = await fetch('https://api.github.com/users/yorramn/repos', {headers: headers,}).then((res) => res.json());
-// console.log(projects);
-
-// projects = projects.filter(project => !project.private).map((project: any) => {
-// 	return {
-// 		slug: project.name,
-// 		color: '#5e95e3',
-// 		description: project.description ?? 'Sem descrição',
-// 		shortDescription: project.description ?? 'Sem descrição',
-// 		links: [
-// 			{ to: project.html_url, label: 'GitHub' }
-// 		],
-// 		logo: Assets.Unknown,
-// 		name: project.name,
-// 		period: {
-// 			from: new Date(project.created_at)
-// 		},
-// 		skills: getSkills(project.language?.toString()?.toLowerCase() ?? 'Não consta'),
-// 		type: 'Website Template'
-// 	};
-// })
-let items: Array<Project> = [
-	{
-		slug: 'slick-portfolio-angular',
+async function fetchGitHubRepos(username : string) : Promise<any> {
+    try {
+        if (!username) {
+            console.error('Informe um nome de usuário!');
+            return;
+        }
+        const response = await fetch(`https://api.github.com/users/${username}/repos`);
+        if (!response.ok) {
+            throw new Error(`Erro ao buscar repositórios: ${response.status} - ${response.statusText}`);
+        }
+		return await response.json();
+    } catch (error : any) {
+        console.error('Erro:', error.message);
+    }
+}
+const projects : Array<any> = Array.from(await fetchGitHubRepos('yorramn')).map((project : any) => {
+	return {
+		slug: project.name,
 		color: '#5e95e3',
-		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore non dolores voluptatibus vitae praesentium aperiam, iure laboriosam repellendus sunt explicabo pariatur totam enim, nihil animi quisquam. Sit vero quod laborum!',
-		shortDescription:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore non dolores voluptatibus vitae praesentium aperiam, iure laboriosam repellendus sunt explicabo pariatur totam enim, nihil animi quisquam. Sit vero quod laborum!',
+		description: project.description ?? 'README',
+		shortDescription: project.description ?? 'README',
 		links: [
-			{ to: 'https://github.com/', label: 'GitHub' },
-			{ to: 'https://github.com/RiadhAdrani/slick-portfolio-svelte', label: 'Reporsitory' },
-			{ to: 'https://svelte.dev/', label: 'Svelte' },
-			{ to: 'https://www.shadcn-svelte.com/', label: 'Shadcn Svelte' }
+			{ to: 'https://github.com/yorramn/'+project.name, label: 'GitHub' },
 		],
 		logo: Assets.Unknown,
-		name: 'Slick Portfolio With Svelte',
+		name: project.name,
 		period: {
-			from: new Date()
+			from: new Date(project.created_at)
 		},
-		skills: getSkills('angular', 'ts', 'tailwind'),
+		skills: getSkills(project),
 		type: 'Website Template'
-	},
-	{
-		slug: 'slick-portfolio-svelte',
-		color: '#ff3e00',
-		description:
-			'A Vercel-like developer portfolio website template made with Typescript and SvelteKit.',
-		shortDescription:
-			'A Vercel-like developer portfolio website template made with Typescript and SvelteKit.',
-		links: [{ to: 'https://github.com/RiadhAdrani/slick-portfolio-svelte', label: 'GitHub' }],
-		logo: Assets.Svelte,
-		name: 'Slick Portfolio',
-		period: {
-			from: new Date()
-		},
-		skills: getSkills('svelte', 'ts', 'tailwind', 'sass'),
-		type: 'Website Template',
-		screenshots: [
-			{
-				label: 'screen 1',
-				src: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60'
-			},
-			{
-				label: '2',
-				src: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60'
-			},
-			{
-				label: '3',
-				src: 'https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2dyYW1taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-			},
-			{
-				label: '4',
-				src: 'https://images.unsplash.com/photo-1542903660-eedba2cda473?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2dyYW1taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-			},
-			{
-				label: '5',
-				src: 'https://images.unsplash.com/photo-1619410283995-43d9134e7656?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2dyYW1taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-			},
-			{
-				label: '6',
-				src: 'https://images.unsplash.com/photo-1585079542156-2755d9c8a094?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHByb2dyYW1taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-			}
-		]
 	}
-];
-console.log(items);
+}).sort((a : any, b : any) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime())
+
+let items: Array<Project> = [];
+
+items = projects
 
 const title = 'Projetos';
 
