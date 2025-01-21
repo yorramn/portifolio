@@ -24,7 +24,7 @@
 			if (!api) return;
 
 			api.scrollNext();
-		}, 2000);
+		}, 3000);
 	});
 </script>
 
